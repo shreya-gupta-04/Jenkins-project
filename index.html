@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India - Explore the Culture, Heritage, and Beauty</title>
+    
+    <style>
+        /* General Styles & Reset */
+        :root {
+            --primary-color: #ff9900; /* Saffron/Orange - inspired by the flag */
+            --secondary-color: #138808; /* Green - inspired by the flag */
+            --light-color: #f7f7f7;
+            --dark-color: #333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header/Navbar Styles */
+        #main-header {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #main-header .logo a {
+            color: var(--light-color);
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        #main-header nav ul {
+            display: flex;
+        }
+
+        #main-header nav ul li {
+            margin-left: 20px;
+        }
+
+        #main-header nav ul li a {
+            color: var(--light-color);
+            padding: 5px 10px;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        #main-header nav ul li a:hover,
+        #main-header nav ul li a.current {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero-section {
+            height: 80vh;
+            background: url('https://via.placeholder.com/1500x800/2f4f4f/ffffff?text=Incredible+India') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-color);
+            position: relative;
+        }
+
+        #hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay to make text readable */
+        }
+
+        #hero-section .hero-content {
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        #hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        #hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e68a00; /* Slightly darker orange */
+        }
+
+        /* Section Styles */
+        section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+
+        /* Destinations Grid */
+        #destinations .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        /* Features Section (Why India) */
+        #features {
+            background: var(--secondary-color);
+            color: var(--light-color);
+        }
+        
+        #features h2 {
+            color: var(--light-color);
+        }
+
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            width: 30%;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .feature-item h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        #main-footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        #main-footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Simple Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            #main-header .container {
+                flex-direction: column;
+            }
+            
+            #main-header nav ul {
+                margin-top: 10px;
+            }
+
+            #main-header nav ul li {
+                margin: 0 10px;
+            }
+
+            #hero-section h1 {
+                font-size: 2.5em;
+            }
+            
+            .feature-item {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="#">🇮🇳 Incredible India</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero-section" class="current">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#features">Why India?</a></li>
+                    <li><a href="#contact-us">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero-section">
+        <div class="hero-content">
+            <h1>A Land of Unity in Diversity</h1>
+            <p>Discover ancient history, vibrant cultures, breathtaking landscapes, and unforgettable experiences across India.</p>
+            <a href="#destinations" class="btn-primary">Start Your Journey</a>
+        </div>
+    </section>
+
+    <section id="destinations">
+        <div class="container">
+            <h2>Popular Destinations</h2>
+            <div class="destination-grid">
+                
+                <div class="destination-card">
+                    <img src="https://via.placeholder.com/600x400/87ceeb/ffffff?text=Taj+Mahal" alt="Taj Mahal">
+                    <div class="card-content">
+                        <h3>Agra: The City of Love</h3>
+                        <p>Witness the timeless beauty of the **Taj Mahal**, a UNESCO World Heritage site and an architectural marvel of white marble.</p>
+                        <a href="#" class="btn-primary">Explore Agra</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="https://via.placeholder.com/600x400/3cb371/ffffff?text=Kerala+Backwaters" alt="Kerala Backwaters">
+                    <div class="card-content">
+                        <h3>Kerala: God's Own Country</h3>
+                        <p>Relax on a houseboat cruise through the serene and picturesque **Backwaters** of Kerala. A true tropical paradise.</p>
+                        <a href="#" class="btn-primary">Explore Kerala</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="https://via.placeholder.com/600x400/a0522d/ffffff?text=Rajasthan+Forts" alt="Rajasthan Forts">
+                    <div class="card-content">
+                        <h3>Rajasthan: Land of Kings</h3>
+                        <p>Discover majestic forts, opulent palaces, and the vibrant deserts of Jaipur, Jodhpur, and Udaipur.</p>
+                        <a href="#" class="btn-primary">Explore Rajasthan</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="https://via.placeholder.com/600x400/b0c4de/ffffff?text=Himalayas+Trekking" alt="Himalayas Trekking">
+                    <div class="card-content">
+                        <h3>Himalayas: Mountain Majesty</h3>
+                        <p>Experience the towering peaks, spiritual monasteries, and thrilling adventures in the northern mountain ranges.</p>
+                        <a href="#" class="btn-primary">Explore Himalayas</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Why Choose India?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Ancient Heritage</h3>
+                    <p>Home to one of the world's oldest civilizations, with thousands of years of history and architecture.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Diverse Cuisine</h3>
+                    <p>A culinary journey from rich curries in the North to fresh seafood in the South—a delight for every palate.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Spiritual Journeys</h3>
+                    <p>A global center for yoga, meditation, and ancient wisdom, offering peace and introspection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us" style="background-color: #eee;">
+        <div class="container">
+            <h2>Plan Your Trip</h2>
+            <p>Ready to explore? Contact us today to customize your perfect Indian adventure!</p>
+            <a href="mailto:info@india-tourism-example.com" class="btn-primary" style="background: var(--secondary-color); color: var(--light-color);">Book Now!</a>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <p>Incredible India Tourism &copy; 2025</p>
+        <p>Developed with pure HTML & CSS</p>
+    </footer>
+
+</body>
+</html>
